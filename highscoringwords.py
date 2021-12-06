@@ -74,7 +74,7 @@ class HighScoringWords:
         :return: The list of top words.
         """
         all_words_scores = self.create_all_words_scores(self.valid_words)
-        return self.calculate_leaderboard_for_word_list(all_words_scores)
+        return self.calculate_leaderboard_for_word_list(all_words_scores).keys()
 
     def build_starting_letters(self):
         letters = [random.choice(string.ascii_letters) for i in range(0, self.INITIAL_LETTER_COUNT)]
@@ -104,7 +104,7 @@ class HighScoringWords:
                     candidate_words.append(''.join(word))
         candidate_words_scores = self.create_all_words_scores(candidate_words)
         self.top_buildable_words = self.calculate_leaderboard_for_word_list(candidate_words_scores)
-        return self.top_buildable_words
+        return self.top_buildable_words.keys()
 
 
 if __name__ == '__main__':
